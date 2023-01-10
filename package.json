@@ -1,0 +1,22 @@
+{
+  "name": "typescript_especializati",
+  "version": "1.0.0",
+  "description": "Content of the free typescript courses at https://academy.especializati.com.br",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diasEduardo/typescript_especializati.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diasEduardo/typescript_especializati/issues"
+  },
+  "homepage": "https://github.com/diasEduardo/typescript_especializati#readme",
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
+}
