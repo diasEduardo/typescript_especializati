@@ -2,3 +2,4 @@
 /dist
 .editorconfig
 *.log
+.env
