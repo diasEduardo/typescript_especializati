@@ -1,4 +1,5 @@
-import { IsNotEmpty, isNotEmpty, Length } from "class-validator";
+import ProductDTO from "@/dto/Product.dto";
+import { IsNotEmpty, isNotEmpty, Length, ValidateIf } from "class-validator";
 import {Entity,Column,PrimaryColumn } from "typeorm"
 import {v4 as uuid} from 'uuid'
 
@@ -14,6 +15,7 @@ export class Product{
 
     @Column({name:`DE_PRODUCT`,type:`varchar`,length:255,nullable:true})
     @Length(0,255)
+    @ValidateIf((object, value) => (value !== null) && (value !== undefined) )
     deProduct: string;
 
     @Column({name:`VL_WEIGHT`,type:`int`})
@@ -23,9 +25,17 @@ export class Product{
     @Column({name:`DT_REGISTER`,type:`datetime`,default:()=>`GETDATE()` })
     dtRegister:Date;
 
-    constructor(){
+    constructor(dto:ProductDTO);
+    constructor();
+    constructor(...args: any[]){
         if(!this.idProduct){
             this.idProduct = uuid();
         }
+        if(args.length == 1){
+            this.nmProduct = args[0].nmProduct;
+            this.vlWeight = args[0].vlWeight;
+            this.deProduct = args[0].deProduct;
+        }
+
     }
 }

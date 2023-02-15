@@ -10,7 +10,6 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/api',apiRoute);
-app.use('/api/v1',apiRoute);
 app.listen(PORT,():void=>{
     console.log(`Server running in :${PORT}`)
 });
